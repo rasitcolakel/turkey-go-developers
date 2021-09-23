@@ -9,6 +9,7 @@ export async function getServerSideProps({ req }) {
 }
 
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import { FiAlertCircle } from "react-icons/fi";
 export default function Post({ data }) {
   const [page, setPage] = React.useState(0);
   return (
@@ -34,21 +35,28 @@ function RenderDevelopers({ data }) {
 }
 
 function Developer({ d }) {
-  const [, name, company, socialMedia] = d;
-
+  const [, name, company, socialMedia, description, workStatus] = d;
   let matches = socialMedia?.match(
     /http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/
   );
   let image = matches ? matches[1] : "GoTurkiye_";
-  console.log("123", image);
+  let lookingForJobs = workStatus?.toUpperCase() === "EVET";
   return (
-    <div className="dev-card w-full">
+    <div className={`dev-card w-full ${lookingForJobs && "looking-for-jobs"}`}>
       <img
         className="w-1/2 rounded-full mx-auto"
         src={"https://unavatar.io/" + image}
       />
       <h3 className="text-xl text-center py-2">{name}</h3>
       <p className="text-lg text-center py-2">{company}</p>
+      <p className="text-sm text-center py-2 ">{description}</p>
+
+      {lookingForJobs && (
+        <div className="flex items-center justify-center text-xl text-center py-2 text-go">
+          <FiAlertCircle className="text-go mx-2 text-4xl" />{" "}
+          <span>İş Arıyor</span>
+        </div>
+      )}
     </div>
   );
 }

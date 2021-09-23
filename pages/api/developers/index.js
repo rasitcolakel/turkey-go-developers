@@ -11,7 +11,7 @@ export default async function getDevelopers(req, res) {
         (process.env.GOOGLE_SHEETS_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
         target
       );
-      const range = `Sheet1!A${parseInt(3)}:G${1000}`;
+      const range = `Sheet1!A${parseInt(3)}:F${1000}`;
 
       const sheets = google.sheets({ version: "v4", auth: jwt });
       const response = await sheets.spreadsheets.values.get({

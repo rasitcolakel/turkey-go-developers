@@ -39,4 +39,7 @@
   .pagination-button[disabled] {
     opacity: 0.5;
   }
+  .looking-for-jobs {
+    @apply border-dashed border-2 border-go;
+  }
 }
