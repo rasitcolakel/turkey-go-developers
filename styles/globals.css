@@ -32,7 +32,7 @@
     @apply bg-white shadow-lg mx-auto rounded-xl p-4;
   }
   .pagination-button {
-    @apply py-4 px-4 mx-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg;
+    @apply py-4 px-4 mx-2 bg-go hover:opacity-90 focus:opacity-90 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg;
   }
 
   .pagination-button:disabled,
@@ -41,5 +41,14 @@
   }
   .looking-for-jobs {
     @apply border-dashed border-2 border-go;
+  }
+  .toggle-checkbox:checked {
+    @apply: right-0 border-green-400;
+    right: 0;
+    border-color: #68d391;
+  }
+  .toggle-checkbox:checked + .toggle-label {
+    @apply: bg-green-400;
+    background-color: #68d391;
   }
 }
