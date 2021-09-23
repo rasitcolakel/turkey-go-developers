@@ -26,7 +26,7 @@
     @apply flex justify-center items-center  m-0 p-0 flex-col py-2;
   }
   .dev-grid {
-    @apply w-3/4 grid grid-cols-4 gap-4;
+    @apply w-11/12 lg:w-3/4 grid-cols-1 gap-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4;
   }
   .dev-card {
     @apply bg-white shadow-lg mx-auto rounded-xl p-4;
