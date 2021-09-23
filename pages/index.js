@@ -17,7 +17,22 @@ export default function Post({ data }) {
       <Head>
         <title>Türkiye Go Dili Geliştirici Listesi</title>
       </Head>
-      <h1 className="text-2xl py-4">Türkiye Go Dili Geliştirici Listesi</h1>
+      <h1 className="text-3xl py-4">Türkiye Go Dili Geliştirici Listesi</h1>
+      <div>
+        <h1 className="text-2xl py-3 text-gray-500">
+          Sensiz şu anda {data.length} kişiyiz. Aramıza,{" "}
+          <a
+            href="https://docs.google.com/spreadsheets/d/1loR_i7d4NvUYvRv9SwCL-FsmV9c2OgefGGJamejCcUs/edit?usp=sharing"
+            className={"border-dashed border-b-2 border-go text-go pb-1"}
+            target={"_blank"}
+          >
+            buraya
+          </a>{" "}
+          tıklayarak katılabilirsin :)
+        </h1>
+        <button></button>
+      </div>
+
       <div className="dev-grid">
         <RenderDevelopers data={data.slice(0 + page * 12, (page + 1) * 12)} />
       </div>
