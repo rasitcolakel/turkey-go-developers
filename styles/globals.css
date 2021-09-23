@@ -1,16 +1,37 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+  html,
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    height: 100%;
+    @apply bg-gray-100;
+  }
+  body {
+    margin: 0;
+  }
 
-* {
-  box-sizing: border-box;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  .dev-container {
+    @apply flex justify-center items-center  m-0 p-0 flex-col py-2;
+  }
+  .dev-grid {
+    @apply w-3/4 grid grid-cols-4 gap-4;
+  }
+  .dev-card {
+    @apply bg-white shadow-lg mx-auto rounded-xl p-4;
+  }
+  .pagination-button {
+    @apply py-4 px-4 mx-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg;
+  }
 }
