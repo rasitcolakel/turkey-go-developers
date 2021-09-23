@@ -20,7 +20,11 @@ export default function Post({ data }) {
       <div className="dev-grid">
         <RenderDevelopers data={data.slice(0 + page * 12, (page + 1) * 12)} />
       </div>
-      <Pagination page={page} setPage={setPage} />
+      <Pagination
+        page={page}
+        setPage={setPage}
+        maxPage={Math.ceil(data.length / 12)}
+      />
     </div>
   );
 }
@@ -49,10 +53,11 @@ function Developer({ d }) {
   );
 }
 
-function Pagination({ page, setPage }) {
+function Pagination({ page, setPage, maxPage }) {
   return (
     <div className="flex items-center pt-2">
       <button
+        disabled={page === 0}
         type="button"
         className="pagination-button"
         onClick={() => setPage(page - 1)}
@@ -63,6 +68,7 @@ function Pagination({ page, setPage }) {
         type="button"
         className="pagination-button"
         onClick={() => setPage(page + 1)}
+        disabled={page === maxPage - 1}
       >
         <HiOutlineChevronRight />
       </button>
