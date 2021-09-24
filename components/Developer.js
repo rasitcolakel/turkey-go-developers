@@ -1,12 +1,19 @@
 import { FiAlertCircle } from "react-icons/fi";
 function Developer({ d }) {
   const [, name, company, socialMedia, description, workStatus] = d;
-  let matches = socialMedia?.match(
+ 
+  let twitterMatches = socialMedia?.match(
     /http(?:s)?:\/\/(?:www\.)?twitter\.com\/([a-zA-Z0-9_]+)/
   );
-  let image = matches
-    ? "https://unavatar.io/" + matches[1]
-    : "gopher-" + [1, 2, 3, 4, 5, 6, 7][Math.floor(Math.random() * 7)] + ".png";
+  let githubMatches = socialMedia?.match(
+    /github\.com\/([a-zA-Z0-9_]+)/
+  );
+  let image = twitterMatches
+    ? "https://unavatar.io/" + twitterMatches[1]
+    : (githubMatches 
+       ? "https://unavatar.io/github/" + githubMatches[1] 
+       : "gopher-" + [1, 2, 3, 4, 5, 6, 7][Math.floor(Math.random() * 7)] + ".png");
+
   let lookingForJobs = workStatus?.toUpperCase() === "EVET";
   return (
     <div className={`dev-card w-full ${lookingForJobs && "looking-for-jobs"}`}>
