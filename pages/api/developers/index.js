@@ -1,9 +1,9 @@
 import { google } from "googleapis";
+import { reseller } from "googleapis/build/src/apis/reseller";
 export default async function getDevelopers(req, res) {
-  const { method } = req;
-
-  if (method === "GET") {
-    try {
+  try {
+    const { method } = req;
+    if (method === "GET") {
       const target = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
       const jwt = new google.auth.JWT(
         process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
@@ -22,11 +22,12 @@ export default async function getDevelopers(req, res) {
       const data = response.data.values.filter((d) => d[1]);
       res.setHeader("Cache-Control", "s-maxage=30");
       res.status(200).json(data);
-    } catch (err) {
-      console.log(err);
+    } else {
+      res.setHeader("Allow", ["GET"]);
+      res.status(405).end(`Method ${method} Not Allowed`);
     }
-  } else {
-    res.setHeader("Allow", ["GET"]);
-    res.status(405).end(`Method ${method} Not Allowed`);
+  } catch (err) {
+    res.status(500).end(`Server error`, e.message);
+    console.log(err);
   }
 }
