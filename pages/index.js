@@ -37,7 +37,7 @@ export default function Post({ data }) {
         <h1 className="text-lg lg:text-2xl py-2 mb-3 text-gray-500">
           Aramıza,{" "}
           <a
-            href="https://docs.google.com/spreadsheets/d/1loR_i7d4NvUYvRv9SwCL-FsmV9c2OgefGGJamejCcUs/edit?usp=sharing"
+            href="https://github.com/yakuter/go-developer-list"
             className={"border-dashed border-b-2 border-go text-go pb-1"}
             target={"_blank"}
           >
