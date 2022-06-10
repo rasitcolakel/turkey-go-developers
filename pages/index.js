@@ -56,10 +56,7 @@ export default function Post({ data }) {
       </div> */}
       <div className="dev-grid">
         <Developer
-          data={
-            developers &&
-            developers.slice(0 + page * 12 * 300, (page + 1) * 12 * 300)
-          }
+          data={developers && developers.slice(0 + page * 12, (page + 1) * 12)}
         />
       </div>
       <Pagination
