@@ -47,15 +47,20 @@ export default function Post({ data }) {
         </h1>
         <button></button>
       </div>
-      <div>
+      {/* <div>
         <Switch
           checked={lookingForJobs}
           setChecked={setLookingForJobs}
           title={"Sadece İş arayanlar"}
         />
-      </div>
+      </div> */}
       <div className="dev-grid">
-        <Developer data={developers.slice(0 + page * 12, (page + 1) * 12)} />
+        <Developer
+          data={
+            developers &&
+            developers.slice(0 + page * 12 * 300, (page + 1) * 12 * 300)
+          }
+        />
       </div>
       <Pagination
         page={page}
